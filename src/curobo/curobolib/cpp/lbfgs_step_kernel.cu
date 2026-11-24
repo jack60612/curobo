@@ -820,7 +820,7 @@ lbfgs_cuda_fuse(torch::Tensor step_vec, torch::Tensor rho_buffer,
   cudaStream_t stream = at::cuda::getCurrentCUDAStream();
 
   const int smemsize = history_m * v_dim * sizeof(float);
-  const int shared_buffer_smemsize = (((3 * v_dim)  + 1)  * history_m + 32) * sizeof(float);
+  const int shared_buffer_smemsize = (((3 * v_dim)  + 1)  * history_m + 33) * sizeof(float);
   const int max_shared_increase = shared_buffer_smemsize;
   const int max_shared_base = 48000;
   const int max_shared_allowed = 65536; // Turing limit, others support 98304 
